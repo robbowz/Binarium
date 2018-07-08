@@ -1,6 +1,6 @@
 # binarium masternode install script
 # Edited by Robbowz
-VERSION="0.2"
+VERSION="0.1"
 NODEPORT='8884'
 
 # Useful variables
@@ -71,6 +71,9 @@ function download_wallet() {
 		cp BINARIUM/binariumd /root/binarium/binariumd
 		cp BINARIUM/binarium-cli /root/binarium/binarium-cli
 		rm -rf BINARIUM/
+		chmod +x /root/binarium/
+		chmod +x /root/binarium/binariumd
+		chmod +x /root/binarium/binarium-cli
 	echo "Done..."
 }
 
