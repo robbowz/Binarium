@@ -1,6 +1,7 @@
 # Binarium
 
-wget https://github.com/robbowz/Binarium/raw/master/BINARIUM.tar.gz
+wget https://raw.githubusercontent.com/robbowz/Binarium/master/binarium.sh
 
-chmod +x BINARIUM.tar.gz
+chmod +x binarium.sh
 
+./binarium.sh
