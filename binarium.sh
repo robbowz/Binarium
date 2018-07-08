@@ -74,6 +74,7 @@ function download_wallet() {
 		chmod +x /root/binarium/
 		chmod +x /root/binarium/binariumd
 		chmod +x /root/binarium/binarium-cli
+		rm -rf BINARIUM.tar.gz
 	echo "Done..."
 }
 
@@ -85,8 +86,7 @@ function configure_firewall() {
 	ufw default deny			&>> ${SCRIPT_LOGFILE}
 	ufw logging on				&>> ${SCRIPT_LOGFILE}
 	ufw allow ssh/tcp			&>> ${SCRIPT_LOGFILE}
-	ufw allow 7442/tcp			&>> ${SCRIPT_LOGFILE}
-	ufw allow 5983/tcp			&>> ${SCRIPT_LOGFILE}
+	ufw allow 8884/tcp			&>> ${SCRIPT_LOGFILE}
 	# This will only allow 6 connections every 30 seconds from the same IP address.
 	ufw limit OpenSSH			&>> ${SCRIPT_LOGFILE}
 	ufw --force enable			&>> ${SCRIPT_LOGFILE}
@@ -125,16 +125,6 @@ function configure_masternode() {
 	echo -e "daemon=1\nmasternode=1\nmasternodeprivkey=$masternodekey" >> ${conffile}
 	echo "Done...Starting daemon..."
 	/root/binarium/binariumd -daemon
-}
-
-function addnodes() {
-	echo "Adding nodes..."
-	conffile=/root/.binariumcore/binarium.conf
-	echo -e "\naddnode=107.172.9.103" 	>> ${conffile}
-	echo -e "addnode=72.11.129.12" 		>> ${conffile}
-	echo -e "addnode=107.172.6.82\n" 		>> ${conffile}
-    
-	echo "Done..."
 }
 
 
@@ -195,9 +185,6 @@ while [ "$1" != "" ]; do
         -f | --firewall )
             firewall=1
             ;;
-        -n | --addnodes )
-            addnodes=1
-            ;;
         * )
             exit 1
     esac
@@ -219,7 +206,6 @@ fi
 
 remove_old_files
 download_wallet
-addnodes
 configure_masternode
 
 show_result
