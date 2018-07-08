@@ -66,7 +66,7 @@ function download_wallet() {
 	mkdir /root/binarium
     	cd binarium
 	mkdir /root/.binariumcore
-	wget https://github.com/robbowz/Binarium/raw/master/BINARIUM.tar.gz
+	wget https://github.com/robbowz/Binarium/files/2173254/BINARIUM.tar.gz
     	tar -zxvf BINARIUM.tar.gz
 	cp BINARIUM/binariumd /root/binarium/binariumd
 	cp BINARIUM/binarium-cli /root/binarium/binarium-cli
