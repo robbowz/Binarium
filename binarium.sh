@@ -67,10 +67,10 @@ function download_wallet() {
     	cd binarium
 	mkdir /root/.binariumcore
 	wget https://github.com/robbowz/Binarium/raw/master/BINARIUM.tar.gz
-    	tar -xvf BINARIUM.tar.gz
-		cp BINARIUM/binariumd /root/binarium/binariumd
-		cp BINARIUM/binarium-cli /root/binarium/binarium-cli
-		rm -rf BINARIUM/
+    	tar -zxvf BINARIUM.tar.gz
+	cp BINARIUM/binariumd /root/binarium/binariumd
+	cp BINARIUM/binarium-cli /root/binarium/binarium-cli
+	rm -rf BINARIUM/
 	echo "Done..."
 }
 
