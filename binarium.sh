@@ -1,6 +1,6 @@
 # binarium masternode install script
 # Edited by Robbowz
-VERSION="0.1"
+VERSION="0.2"
 NODEPORT='8884'
 
 # Useful variables
@@ -67,10 +67,10 @@ function download_wallet() {
     	cd binarium
 	mkdir /root/.binariumcore
 	wget https://github.com/robbowz/Binarium/files/2173254/BINARIUM.tar.gz
-    	tar -zxvf BINARIUM.tar.gz
-	cp BINARIUM/binariumd /root/binarium/binariumd
-	cp BINARIUM/binarium-cli /root/binarium/binarium-cli
-	rm -rf BINARIUM/
+		unrar x BINARIUM.tar.gz
+		cp BINARIUM/binariumd /root/binarium/binariumd
+		cp BINARIUM/binarium-cli /root/binarium/binarium-cli
+		rm -rf BINARIUM/
 	echo "Done..."
 }
 
